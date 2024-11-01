@@ -1,0 +1,44 @@
+function SwiperComponent() {
+  useEffect(() => {
+    const swipers = document.querySelectorAll('.swiper-container'); // Swiper가 적용될 컨테이너 선택
+
+    swipers.forEach((swiper) => {
+      new Swiper(swiper, {
+        loop: true,
+        pagination: {
+          el: document.getElementById(swiper.dataset.paginationTarget),
+          type: 'fraction',
+          clickable: true
+        },
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+          waitForTransition: true
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          },
+          1400: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          }
+        }
+      });
+    });
+  }, []);
+
+export default SwiperComponent;

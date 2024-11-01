@@ -1,0 +1,233 @@
+body {
+  font-family: 'Montserrat' !important;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUQjIg1_i6t8kCHKm459WxRxC7mw9c.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  color: #333;
+  cursor: url('https://raw.githubusercontent.com/EHEN123/boot5/954eb51965a5bdb23614679ab7c82235f42bafd0/cursor.svg'), auto; /* 기본 커서 */
+}
+
+.nav-item {
+  font-family: 'Montserrat' !important;
+}
+
+// Font weight loop
+@for $i from 1 through 9 {
+  .fw-#{$i * 100} {
+    font-weight: #{$i * 100};
+  }
+}
+
+// Font size loop
+@for $i from 20 through 30 {
+  .fs-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+/* ============= Hd ============= */
+.navbar {
+  border: 3px solid #000;
+  background-color: #fff;
+  backdrop-filter: 10px !important;
+  border-radius: 100px;
+  padding: 0px !important;
+
+  &.bg-light {
+    border-radius: 50px !important;
+
+    ul {
+      text-align: right;
+      padding: 0 3rem 1rem;
+    }
+  }
+}
+
+.search,
+.mypage,
+.bag {
+  opacity: 1;
+  transition: opacity 0.5s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.form a img {
+  width: 20px;
+  height: 20px;
+}
+
+.navBtn {
+  border: none !important;
+}
+
+/* ============= Fd ============= */
+#Fd {
+  a {
+    color: #555 !important;
+  }
+}
+
+.business {
+  font-size: 12px;
+}
+
+.footerSns a svg {
+  width: 30px;
+}
+
+/* ============= Scrollbar ============= */
+::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 설정 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ============= Custom ============= */
+.Lbtn {
+  color: #333 !important;
+  background-color: #fff !important;
+  border: 3px solid #333 !important;
+  transition: background 0.5s ease;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateY(20px); 
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fadeIn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out; /* 애니메이션 적용 */
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+.blur-target {
+  transition: filter 0.5s ease;
+
+  &:hover {
+    filter: blur(5px);
+    transition: transform 1s, filter 0.5s;
+  }
+}
+
+a,
+button,
+.clickable,
+.nav-link {
+  cursor: url('https://raw.githubusercontent.com/EHEN123/boot5/954eb51965a5bdb23614679ab7c82235f42bafd0/cursor_hover.svg'), pointer !important;
+  color: inherit !important;
+  text-decoration: none;
+}
+
+.scroll_wrap {
+  &:hover {
+    cursor: url(https://raw.githubusercontent.com/EHEN123/boot5/379fd6c07ebb130ce3d211194750acf6eccb98a9/drag.svg) 50 50, auto;
+  }
+
+  &.active:hover {
+    cursor: grab;
+  }
+}
+
+.card {
+  background-color: transparent !important;
+}
+
+/* ============= topBtn ============= */
+.topBtn {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  z-index: 9;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    filter: blur(5px);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  #POCOAR_c {
+    fill: #555;
+    transition: transform 10s ease;
+
+    &:hover {
+      animation: spin 10s linear infinite;
+    }
+  }
+}
+
+.topText {
+  position: absolute;
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
